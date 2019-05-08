@@ -6,20 +6,25 @@ import android.arch.persistence.room.*
     indices = [(Index(value = ["exercise_id"], name = "idx_exercises_exercise_id"))],
     foreignKeys =
     [(ForeignKey(
-        entity = Exercise::class,
+        entity = WorkoutRoutine::class,
         parentColumns = ["worokoutroutine_id"],
         childColumns = ["exercise_id"],
         onUpdate = ForeignKey.CASCADE,
         onDelete = ForeignKey.CASCADE))])
 data class Exercise( @PrimaryKey(autoGenerate = true)
-                     @ColumnInfo(name = "exercise_id")
+                     @ColumnInfo(name = "worokoutroutine_id")
                      val workoutroutineID: Long,
+                     @ColumnInfo(name = "exercise_id")
                      val exerciseID: Long,
+                     @ColumnInfo(name = "exercise_name")
                      val name: String,
                      var isMachine: Boolean,
                      var weight: Double,
-                     var sets: Int,
                      var repRange: Int,
-                     var mapReps: Int,
-                     var mapSets: Int,
+                     var maxReps: Boolean,
                      var failed: Boolean)
+
+data class ExerciseMinimal(val id: String,
+                           val exerciseName: String,
+                           val weight: Double,
+                           var failed: Boolean)
