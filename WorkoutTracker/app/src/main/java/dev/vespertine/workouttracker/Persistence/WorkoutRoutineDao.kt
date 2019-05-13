@@ -1,8 +1,7 @@
 package dev.vespertine.workouttracker.Persistence
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import dev.vespertine.workouttracker.Models.Exercise
 import dev.vespertine.workouttracker.Models.WorkoutRoutine
 
@@ -11,9 +10,9 @@ interface WorkoutRoutineDao : BaseDao<WorkoutRoutine>{
 
 
     @Query(value = "SELECT * FROM workoutroutines")
-    fun getAllWorkoutRoutines(): LiveData<List<WorkoutRoutine>>
+    suspend fun getAllWorkoutRoutines(): LiveData<List<WorkoutRoutine>>
 
     @Query(value = "SELECT * FROM exercises WHERE exercise_id = :exerciseID")
-    fun getExerciseWithID(exerciseID: Long): Exercise?
+    suspend fun getExerciseWithID(exerciseID: Long): Exercise?
 
 }

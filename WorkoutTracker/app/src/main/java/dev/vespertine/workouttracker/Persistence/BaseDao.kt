@@ -1,16 +1,17 @@
 package dev.vespertine.workouttracker.Persistence
 
-import android.arch.persistence.room.*
+import androidx.room.*
+
 
 @Dao
 interface BaseDao<in T> {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun inset(type: T): Long
+    suspend fun inset(type: T): Long
 
     @Delete
-    fun delete(type: T)
+    suspend fun delete(type: T)
 
     @Update
-    fun update(type: T)
+    suspend fun update(type: T)
 }

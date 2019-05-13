@@ -1,17 +1,16 @@
 package dev.vespertine.workouttracker.Persistence
 
-import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Query
+import androidx.lifecycle.LiveData
+import androidx.room.*
 import dev.vespertine.workouttracker.Models.Exercise
 
 @Dao
 interface ExerciseDao: BaseDao<Exercise> {
 
     @Query(value = "SELECT * FROM exercises")
-    fun getAllExercises(): LiveData<List<Exercise>>
+    suspend fun getAllExercises(): LiveData<List<Exercise>>
 
     @Query(value = "SELECT * FROM exercises WHERE exercise_id = :exerciseID")
-    fun getExerciseWithID(exerciseID: Long): Exercise?
+    suspend fun getExerciseWithID(exerciseID: Long): Exercise?
 
 }
