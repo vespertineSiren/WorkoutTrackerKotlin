@@ -15,4 +15,4 @@ data class WorkoutRoutine(@PrimaryKey(autoGenerate = true)
                           val routineName: String,
                           @ColumnInfo(name = "day_number")
                           val dayNumber: Int,
-                          val tags: String)
+                          val tags: MutableList<String>?)

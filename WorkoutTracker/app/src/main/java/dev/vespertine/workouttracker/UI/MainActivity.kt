@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import dev.vespertine.workouttracker.R
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
 
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         setSupportActionBar(toolbar)
 
 
-        val drawer_layout: DrawerLayout = findViewById(R.id.drawer_layout)
+//        val drawer_layout: DrawerLayout = findViewById(R.id.drawer_layout)
 
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar,
@@ -47,7 +49,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawer_layout.addDrawerListener(toggle)
         toggle.syncState()
 
-        val workout_nav_view: BottomNavigationView = findViewById(R.id.workout_nav_view)
+        //val workout_nav_view: BottomNavigationView = findViewById(R.id.workout_nav_view)
 
         workout_nav_view.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
