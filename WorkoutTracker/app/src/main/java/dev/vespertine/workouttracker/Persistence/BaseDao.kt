@@ -1,17 +1,20 @@
 package dev.vespertine.workouttracker.Persistence
 
 import androidx.room.*
+import io.reactivex.Completable
 
 
 @Dao
 interface BaseDao<in T> {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun inset(type: T): Long
+    fun insert(type: T): Completable
 
     @Delete
-    suspend fun delete(type: T)
+    fun delete(type: T) : Completable
 
     @Update
-    suspend fun update(type: T)
+    fun update(type: T) : Completable
+
+
 }

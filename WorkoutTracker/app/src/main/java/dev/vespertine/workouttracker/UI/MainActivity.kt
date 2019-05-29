@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import dev.vespertine.workouttracker.R
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 import kotlinx.android.synthetic.main.content_main.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
@@ -35,7 +36,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
+//        val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
 
@@ -55,7 +56,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     }
 
     override fun onBackPressed() {
-        val drawer_layout: DrawerLayout = findViewById(R.id.drawer_layout)
+        //val drawer_layout: DrawerLayout = findViewById(R.id.drawer_layout)
 
         if (drawer_layout.isDrawerOpen(GravityCompat.START)) {
             drawer_layout.closeDrawer(GravityCompat.START)
@@ -102,7 +103,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
         }
-        val drawer_layout: DrawerLayout = findViewById(R.id.drawer_layout)
+        //val drawer_layout: DrawerLayout = findViewById(R.id.drawer_layout)
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
