@@ -9,7 +9,8 @@ import dev.vespertine.workouttracker.BaseApplication
 
 
 @Component (
-    modules = [AndroidSupportInjectionModule::class])
+    modules = [AndroidSupportInjectionModule::class,
+        ActivityBuildersModule::class])
 
 interface AppComponent : AndroidInjector<BaseApplication> {
     @Component.Builder

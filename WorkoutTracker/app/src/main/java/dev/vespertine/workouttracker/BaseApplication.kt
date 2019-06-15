@@ -6,7 +6,9 @@ import dev.vespertine.workouttracker.di.DaggerAppComponent
 
 
 class BaseApplication : DaggerApplication() {
-    override fun applicationInjector(): AndroidInjector<out DaggerApplication> =
+
+
+    override fun applicationInjector() =
         DaggerAppComponent.builder().application(this).build()
 
 }
